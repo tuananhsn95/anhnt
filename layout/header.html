@@ -1,0 +1,51 @@
+<nav>
+    <div class="toggle-btn" onclick="toggleMenu()">☰ Menu</div>
+    <ul class="menu" id="mainMenu">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a>Phần mềm ▾</a>
+            <ul class="submenu">
+                <li><a href="ds-phan-mem.html">Danh sách phần mềm</a></li>
+                <!-- <li>
+                   <a href="#">Laptop ▸</a>
+                   <ul class="submenu">
+                       <li><a href="#">MacBook</a></li>
+                       <li><a href="#">Windows</a></li>
+                   </ul>
+               </li> -->
+                <!-- <li><a href="#">Tablet</a></li> -->
+            </ul>
+        </li>
+        <!-- <li>
+           <a href="#">Sản phẩm ▾</a>
+           <ul class="submenu">
+               <li><a href="#">Điện thoại</a></li>
+               <li>
+                   <a href="#">Laptop ▸</a>
+                   <ul class="submenu">
+                       <li><a href="#">MacBook</a></li>
+                       <li><a href="#">Windows</a></li>
+                   </ul>
+               </li>
+               <li><a href="#">Tablet</a></li>
+           </ul>
+       </li> -->
+        <li><a href="#">Tiện ích</a></li>
+        <li><a href="#">Thông tin</a></li>
+    </ul>
+</nav>
+<script>
+    function toggleMenu() {
+        document.getElementById('mainMenu').classList.toggle('active');
+    }
+
+    // Xử lý mở submenu trên mobile khi click
+    document.querySelectorAll('.menu > li > a').forEach(item => {
+        item.addEventListener('click', function (e) {
+            const parentLi = this.parentElement;
+            if (window.innerWidth <= 768 && parentLi.querySelector('.submenu')) {
+                e.preventDefault();
+                parentLi.classList.toggle('active');
+            }
+        });
+    });
+</script>
